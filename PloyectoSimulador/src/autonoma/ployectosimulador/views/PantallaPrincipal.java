@@ -4,6 +4,7 @@
  */
 package autonoma.ployectosimulador.views;
 
+import autonoma.ployectosimulador.excepciones.EstaApagado;
 import autonoma.ployectosimulador.excepciones.YaEncedido;
 import autonoma.ployectosimulador.models.Carro;
 import java.awt.Color;
@@ -115,6 +116,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         BtnApagar.setForeground(new java.awt.Color(255, 255, 255));
         BtnApagar.setText("Off");
         BtnApagar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnApagarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 BtnApagarMouseEntered(evt);
             }
@@ -462,6 +466,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "el automovil ya esta encendido");
         }
     }//GEN-LAST:event_BtnEncendidoMouseClicked
+    /////////////////////////////////////////////////////////////
+    /// metodo de apagar
+    private void BtnApagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnApagarMouseClicked
+        
+        try{
+        
+        //se verfica ya esta encendido
+        new EstaApagado (this.carro.isEncendido());
+        
+        //se enciede el carro
+        this.carro.setEncendido(false);
+        JOptionPane.showMessageDialog(this, "el " + this.carro.getTipo()+" se va apagar");
+        
+        }catch(EstaApagado e){
+        JOptionPane.showMessageDialog(this, "el automovil ya esta apagado");
+        }
+    }//GEN-LAST:event_BtnApagarMouseClicked
 
 
     private void moueseEntered(JPanel panel){
