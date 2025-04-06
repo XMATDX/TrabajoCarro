@@ -59,4 +59,24 @@ public class Carro {
     /// Metodos
     /// 
     
+    public void encender(){
+    
+        this.encendido = true;
+    }
+    
+    public void apagar(){
+    
+        this.encendido = false;
+    }
+    
+    public void acelerar(int cantidad ){
+    }
+    
+    public void frenar(int cantidad ){
+    
+    }
+    
+    public void combroparEstado(){
+    
+    }
 }
