@@ -18,7 +18,7 @@ public class Ventana extends javax.swing.JFrame {
     
     /////////////////////////////////
     /// Clases
-    
+
     private Cena cena;
     
     ///se crea un booleano ateder para que se pueda saber si el cliente esta en una mesa 
