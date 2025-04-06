@@ -4,6 +4,9 @@
  */
 package autonoma.ployectosimulador.views;
 
+import java.awt.Color;
+import javax.swing.JPanel;
+
 /**
  *
  * @author mateo
@@ -31,21 +34,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         Pantalla1 = new javax.swing.JPanel();
         Pantalla2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        imanCarro = new javax.swing.JLabel();
+        BtnEncendido = new javax.swing.JButton();
+        BtnApagar = new javax.swing.JButton();
+        IconLlantas = new javax.swing.JLabel();
+        IconMotor = new javax.swing.JLabel();
+        TituVelocidad = new javax.swing.JLabel();
+        TituEstado = new javax.swing.JLabel();
+        TituVelocidaMaxima = new javax.swing.JLabel();
+        TituLImite = new javax.swing.JLabel();
+        TituNombreLLantas = new javax.swing.JLabel();
+        TituTipoMotor = new javax.swing.JLabel();
+        BtnFrenar = new javax.swing.JPanel();
+        IconFrenar = new javax.swing.JLabel();
+        TxtFrenar = new javax.swing.JLabel();
+        BtnAcerelar = new javax.swing.JPanel();
+        IconAcerelar = new javax.swing.JLabel();
+        TxtAcelerar = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -69,69 +74,130 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         Pantalla2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/OIP.jpg"))); // NOI18N
+        imanCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/OIP.jpg"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/acelerador.png"))); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/embrague.png"))); // NOI18N
-
-        jButton1.setText("On");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnEncendido.setBackground(new java.awt.Color(0, 0, 0));
+        BtnEncendido.setForeground(new java.awt.Color(255, 255, 255));
+        BtnEncendido.setText("On");
+        BtnEncendido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnEncendidoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Off");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtnApagar.setBackground(new java.awt.Color(0, 0, 0));
+        BtnApagar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnApagar.setText("Off");
+        BtnApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnApagarActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("Frenar");
-        jLabel4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        IconLlantas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/carreras.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Acrerlar");
-        jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        IconMotor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/motor-del-coche.png"))); // NOI18N
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/carreras.png"))); // NOI18N
+        TituVelocidad.setBackground(new java.awt.Color(0, 0, 0));
+        TituVelocidad.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        TituVelocidad.setForeground(new java.awt.Color(0, 0, 0));
+        TituVelocidad.setText("Valocidad");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/motor-del-coche.png"))); // NOI18N
+        TituEstado.setBackground(new java.awt.Color(0, 0, 0));
+        TituEstado.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        TituEstado.setForeground(new java.awt.Color(0, 0, 0));
+        TituEstado.setText("Estado");
 
-        jLabel8.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Valocidad");
+        TituVelocidaMaxima.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        TituVelocidaMaxima.setForeground(new java.awt.Color(51, 51, 51));
+        TituVelocidaMaxima.setText("Velocidad Maxima");
+        TituVelocidaMaxima.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel9.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Estado");
+        TituLImite.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        TituLImite.setForeground(new java.awt.Color(51, 51, 51));
+        TituLImite.setText("Limite");
+        TituLImite.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Velocidad Maxima");
-        jLabel10.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        TituNombreLLantas.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        TituNombreLLantas.setForeground(new java.awt.Color(51, 51, 51));
+        TituNombreLLantas.setText("Nombre Llanta");
+        TituNombreLLantas.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel11.setText("Limite");
-        jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        TituTipoMotor.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        TituTipoMotor.setForeground(new java.awt.Color(51, 51, 51));
+        TituTipoMotor.setText("Tipo Motor");
+        TituTipoMotor.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel12.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel12.setText("Nombre Llanta");
-        jLabel12.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        BtnFrenar.setBackground(new java.awt.Color(255, 255, 255));
+        BtnFrenar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnFrenarMouseEntered(evt);
+            }
+        });
 
-        jLabel13.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel13.setText("Tipo Motor");
-        jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        IconFrenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/embrague.png"))); // NOI18N
+        IconFrenar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                IconFrenarMouseEntered(evt);
+            }
+        });
+
+        TxtFrenar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        TxtFrenar.setForeground(new java.awt.Color(51, 51, 51));
+        TxtFrenar.setText("Frenar");
+        TxtFrenar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout BtnFrenarLayout = new javax.swing.GroupLayout(BtnFrenar);
+        BtnFrenar.setLayout(BtnFrenarLayout);
+        BtnFrenarLayout.setHorizontalGroup(
+            BtnFrenarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BtnFrenarLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(BtnFrenarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TxtFrenar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IconFrenar))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        BtnFrenarLayout.setVerticalGroup(
+            BtnFrenarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BtnFrenarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(IconFrenar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TxtFrenar)
+                .addContainerGap())
+        );
+
+        BtnAcerelar.setBackground(new java.awt.Color(255, 255, 255));
+
+        IconAcerelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/acelerador.png"))); // NOI18N
+
+        TxtAcelerar.setBackground(new java.awt.Color(0, 0, 0));
+        TxtAcelerar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        TxtAcelerar.setForeground(new java.awt.Color(51, 51, 51));
+        TxtAcelerar.setText("Acererlar");
+        TxtAcelerar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout BtnAcerelarLayout = new javax.swing.GroupLayout(BtnAcerelar);
+        BtnAcerelar.setLayout(BtnAcerelarLayout);
+        BtnAcerelarLayout.setHorizontalGroup(
+            BtnAcerelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BtnAcerelarLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(BtnAcerelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TxtAcelerar)
+                    .addComponent(IconAcerelar))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        BtnAcerelarLayout.setVerticalGroup(
+            BtnAcerelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BtnAcerelarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(IconAcerelar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TxtAcelerar)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout Pantalla2Layout = new javax.swing.GroupLayout(Pantalla2);
         Pantalla2.setLayout(Pantalla2Layout);
@@ -141,40 +207,36 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Pantalla2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1)
+                        .addComponent(imanCarro)
                         .addGap(18, 18, 18)
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(IconLlantas)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)))
+                                    .addComponent(TituLImite)
+                                    .addComponent(TituNombreLLantas)))
                             .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                                .addComponent(IconMotor)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel13)))))
+                                    .addComponent(TituVelocidaMaxima)
+                                    .addComponent(TituTipoMotor)))))
                     .addGroup(Pantalla2Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addGap(60, 60, 60)
-                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(49, 49, 49)
-                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(39, 39, 39)
+                            .addComponent(BtnEncendido)
+                            .addComponent(BtnApagar))
+                        .addGap(36, 36, 36)
+                        .addComponent(BtnFrenar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BtnAcerelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103)
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
+                            .addComponent(TituVelocidad)
                             .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel9)))))
+                                .addGap(10, 10, 10)
+                                .addComponent(TituEstado)))))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         Pantalla2Layout.setVerticalGroup(
@@ -183,50 +245,42 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(Pantalla2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(imanCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Pantalla2Layout.createSequentialGroup()
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pantalla2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel12)
+                                .addComponent(TituNombreLLantas)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11)
+                                .addComponent(TituLImite)
                                 .addGap(30, 30, 30))
                             .addGroup(Pantalla2Layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
-                                .addComponent(jLabel6)
+                                .addComponent(IconLlantas)
                                 .addGap(18, 18, 18)))
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
+                            .addComponent(IconMotor)
                             .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
+                                .addComponent(TituTipoMotor)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel10)))
+                                .addComponent(TituVelocidaMaxima)))
                         .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Pantalla2Layout.createSequentialGroup()
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(TituEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(TituVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(Pantalla2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)))
-                            .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(174, 174, 174))
+                                .addComponent(BtnEncendido, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BtnApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BtnFrenar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnAcerelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 2, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout Pantalla1Layout = new javax.swing.GroupLayout(Pantalla1);
@@ -242,7 +296,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             Pantalla1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pantalla1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(Pantalla2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Pantalla2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -260,74 +314,59 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Pantalla1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnEncendidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEncendidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnEncendidoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BtnApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnApagarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BtnApagarActionPerformed
+    /////////////////////////////////////////////////////////////
+    /// Frenar color
+    private void IconFrenarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconFrenarMouseEntered
+        this.moueseEntered(BtnFrenar);
+    }//GEN-LAST:event_IconFrenarMouseEntered
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void BtnFrenarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFrenarMouseEntered
+        this.moueseEntered(BtnFrenar);
+    }//GEN-LAST:event_BtnFrenarMouseEntered
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PantallaPrincipal().setVisible(true);
-            }
-        });
+
+    private void moueseEntered(JPanel panel){
+        
+       // cundo el mouese esta ensima de color
+      // da color al panel
+     panel.setBackground(new Color(54,0,110));
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BtnAcerelar;
+    private javax.swing.JButton BtnApagar;
+    private javax.swing.JButton BtnEncendido;
+    private javax.swing.JPanel BtnFrenar;
+    private javax.swing.JLabel IconAcerelar;
+    private javax.swing.JLabel IconFrenar;
+    private javax.swing.JLabel IconLlantas;
+    private javax.swing.JLabel IconMotor;
     private javax.swing.JPanel Pantalla1;
     private javax.swing.JPanel Pantalla2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel TituEstado;
+    private javax.swing.JLabel TituLImite;
+    private javax.swing.JLabel TituNombreLLantas;
+    private javax.swing.JLabel TituTipoMotor;
+    private javax.swing.JLabel TituVelocidaMaxima;
+    private javax.swing.JLabel TituVelocidad;
+    private javax.swing.JLabel TxtAcelerar;
+    private javax.swing.JLabel TxtFrenar;
+    private javax.swing.JLabel imanCarro;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
