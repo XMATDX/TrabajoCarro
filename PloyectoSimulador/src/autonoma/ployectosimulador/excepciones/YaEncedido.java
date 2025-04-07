@@ -8,6 +8,7 @@ package autonoma.ployectosimulador.excepciones;
  *
  * @author mateo
  */
+
 public class YaEncedido extends RuntimeException{
     
     public YaEncedido(boolean estado){
@@ -18,5 +19,5 @@ public class YaEncedido extends RuntimeException{
         
         }
     }
-    
+  
 }

@@ -17,6 +17,8 @@ public class Carro {
     private String tipo;
     private int velocidad = 0;
     private boolean encendido = false;
+    private Llanta llanta;
+    private Motor motor;
 
     //////////////////////////////////
     /// Constructor
@@ -36,6 +38,13 @@ public class Carro {
         return velocidad;
     }
     
+    public Llanta getLlanta() {
+        return llanta;
+    }
+    
+    public Motor getMotor() {
+        return motor;
+    }
     //////////////////////////////////
     /// Metodos de acceso (set)
     ///
@@ -70,10 +79,13 @@ public class Carro {
     }
     
     public void acelerar(int cantidad ){
+        
+        this.velocidad += cantidad;
     }
     
     public void frenar(int cantidad ){
-    
+        
+        this.velocidad -= cantidad;
     }
     
     public void combroparEstado(){

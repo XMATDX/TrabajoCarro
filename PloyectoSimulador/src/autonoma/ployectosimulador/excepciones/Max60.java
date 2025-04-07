@@ -8,17 +8,16 @@ package autonoma.ployectosimulador.excepciones;
  *
  * @author mateo
  */
-public class Velocidad0 extends RuntimeException{
+public class Max60 extends RuntimeException{
 
-    public Velocidad0(int velocidad) {
+    public Max60(int velocidad) {
         
-        //se comprueba si la velocidad del carro es cero par decir que no es necesario frenar
-        if(velocidad== 0){
-            
-            throw this; // Lanzamos la excepción
-        
+        //condicion donse avisa al usuari que se apago el carro en velocidad mas 60 km/h
+        if (velocidad >= 60){
+           throw this; // Lanzamos la excepción
         }
-    
     }
+    
+    
     
 }

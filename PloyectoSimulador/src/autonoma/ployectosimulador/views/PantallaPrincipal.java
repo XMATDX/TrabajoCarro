@@ -5,6 +5,8 @@
 package autonoma.ployectosimulador.views;
 
 import autonoma.ployectosimulador.excepciones.EstaApagado;
+import autonoma.ployectosimulador.excepciones.Max60;
+import autonoma.ployectosimulador.excepciones.Velocidad0;
 import autonoma.ployectosimulador.excepciones.YaEncedido;
 import autonoma.ployectosimulador.models.Carro;
 import java.awt.Color;
@@ -168,6 +170,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         BtnFrenar.setBackground(new java.awt.Color(255, 255, 255));
         BtnFrenar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnFrenarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 BtnFrenarMouseEntered(evt);
             }
@@ -475,14 +480,47 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         //se verfica ya esta encendido
         new EstaApagado (this.carro.isEncendido());
         
+        //avisar al usuari que se apago el carro en velocidad mas 60 km/h
+        new Max60 (this.carro.getVelocidad());
+        
         //se enciede el carro
         this.carro.setEncendido(false);
-        JOptionPane.showMessageDialog(this, "el " + this.carro.getTipo()+" se va apagar");
+        JOptionPane.showMessageDialog(this, "El " + this.carro.getTipo()+" se va apagar");
         
         }catch(EstaApagado e){
-        JOptionPane.showMessageDialog(this, "el automovil ya esta apagado");
+        JOptionPane.showMessageDialog(this, "El automovil ya esta apagado");
+        }catch(Max60 e){
+            JOptionPane.showMessageDialog(this, "el auto movil fue apagadop en 60 km/h lamntablemente se acidento");
+            this.dispose();
         }
+        
+        
     }//GEN-LAST:event_BtnApagarMouseClicked
+    
+    /////////////////////////////////////////////////////////////
+    /// metodo de frenar
+    private void BtnFrenarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFrenarMouseClicked
+        
+        
+        try{
+        
+        //se verfica si esta encendido
+        new EstaApagado (this.carro.isEncendido());
+        new Velocidad0 (this.carro.getVelocidad());
+        
+        //se pregunta
+        int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres frenar"));
+         System.out.println(valor);
+        this.carro.frenar(valor);
+        
+        }catch(EstaApagado e){
+         //si se piensa frenar pero el carro esta apagado
+        JOptionPane.showMessageDialog(this, "El automovil esta apagado nopuede hacer nada");
+        }catch(Velocidad0 e){
+        //si se piensa frenar pero no hay velocidad
+        JOptionPane.showMessageDialog(this, "El automovil no esta en movimiento");
+        }
+    }//GEN-LAST:event_BtnFrenarMouseClicked
 
 
     private void moueseEntered(JPanel panel){
