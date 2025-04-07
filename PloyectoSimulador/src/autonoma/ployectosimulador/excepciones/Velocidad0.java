@@ -10,14 +10,9 @@ package autonoma.ployectosimulador.excepciones;
  */
 public class Velocidad0 extends RuntimeException{
 
-    public Velocidad0(int velocidad) {
+    public Velocidad0() {
         
-        //se comprueba si la velocidad del carro es cero par decir que no es necesario frenar
-        if(velocidad== 0){
-            
-            throw this; // Lanzamos la excepción
-        
-        }
+        super("El automovil no esta en movimiento");
     
     }
     

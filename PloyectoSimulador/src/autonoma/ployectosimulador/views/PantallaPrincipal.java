@@ -364,13 +364,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                             .addComponent(TituEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TxtEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(Pantalla2Layout.createSequentialGroup()
-                                    .addGap(28, 28, 28)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(Pantalla2Layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addComponent(TituVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(Pantalla2Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Pantalla2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(TituVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(Pantalla2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(TxtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -554,16 +553,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         
         try{
-        
-        //se verfica si esta encendido
-        new EstaApagado (this.carro.isEncendido());
-        new Velocidad0 (this.carro.getVelocidad());
+ 
         
         //se pregunta
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres frenar")); 
         this.carro.frenar(valor);
-        new Max30 (valor);
-        
+ 
         }catch(EstaApagado e){
          //si se piensa frenar pero el carro esta apagado
         JOptionPane.showMessageDialog(this, "El automovil esta apagado nopuede hacer nada");

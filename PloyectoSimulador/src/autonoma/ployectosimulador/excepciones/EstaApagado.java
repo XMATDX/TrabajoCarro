@@ -10,13 +10,9 @@ package autonoma.ployectosimulador.excepciones;
  */
 public class EstaApagado extends RuntimeException{
     
-    public EstaApagado(boolean estado){
-    
-        // Lanzamos si el carro  esta apagado
-        if (!estado){
-            throw this; // Lanzamos la excepción
+    public EstaApagado(){
         
-        }
+        super("el vehiculo esta apagado");
     }
     
 }

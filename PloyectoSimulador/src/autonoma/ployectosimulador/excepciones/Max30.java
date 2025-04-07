@@ -10,11 +10,8 @@ package autonoma.ployectosimulador.excepciones;
  */
 public class Max30 extends RuntimeException {
     
-    public Max30 (int velocidad) {
+    public Max30 () {
         
-        //condicion donse avisa al usuari que se apago el carro en velocidad mas 60 km/h
-        if (velocidad >= 30){
-           throw this; // Lanzamos la excepción
-        }
+        
     }
 }
