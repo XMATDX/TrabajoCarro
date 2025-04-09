@@ -11,13 +11,8 @@ package autonoma.ployectosimulador.excepciones;
 
 public class YaEncedido extends RuntimeException{
     
-    public YaEncedido(boolean estado){
-        
-        // Lanzamos si el carro  esta encendido
-        if (estado){
-            throw this; // Lanzamos la excepción
-        
-        }
+    public YaEncedido(){
+        super("El automovil ya esta prendido");
     }
   
 }

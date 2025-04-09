@@ -33,6 +33,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         this.carro = carro;
         this.TxtEstado.setText("APAGADO");
         this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
+        
+        ///TEXTO DE LLANTA
+        this.TxtNombreLlanta.setText(this.carro.getLlanta().getNombre());
+        this.TxtLImiteVelocidad.setText(Integer.toString(this.carro.getLlanta().getLimitePermitido()));
+        
+        ///TEXTO DE MOTOR
+        this.TxtTipoMotor.setText(this.carro.getMotor().getTipo());
+        this.TxtVelocidadMaxima.setText(Integer.toString(this.carro.getMotor().getVelocidadMaxima()));
+        
     }
 
     /**
@@ -70,7 +79,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         TxtVelocidad = new javax.swing.JLabel();
         TxtNombreLlanta = new javax.swing.JLabel();
         TxtLImiteVelocidad = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        KmH = new javax.swing.JLabel();
+        TxtTipoMotor = new javax.swing.JLabel();
+        TxtVelocidadMaxima = new javax.swing.JLabel();
+        KmH1 = new javax.swing.JLabel();
+        KmH2 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -267,15 +280,33 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         TxtVelocidad.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         TxtVelocidad.setForeground(new java.awt.Color(0, 0, 0));
 
+        TxtNombreLlanta.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         TxtNombreLlanta.setForeground(new java.awt.Color(0, 0, 0));
         TxtNombreLlanta.setText("jLabel1");
 
+        TxtLImiteVelocidad.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         TxtLImiteVelocidad.setForeground(new java.awt.Color(0, 0, 0));
         TxtLImiteVelocidad.setText("jLabel1");
 
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Km/h");
+        KmH.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        KmH.setForeground(new java.awt.Color(0, 0, 0));
+        KmH.setText("Km/h");
+
+        TxtTipoMotor.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        TxtTipoMotor.setForeground(new java.awt.Color(0, 0, 0));
+        TxtTipoMotor.setText("jLabel1");
+
+        TxtVelocidadMaxima.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        TxtVelocidadMaxima.setForeground(new java.awt.Color(0, 0, 0));
+        TxtVelocidadMaxima.setText("jLabel1");
+
+        KmH1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        KmH1.setForeground(new java.awt.Color(0, 0, 0));
+        KmH1.setText("Km/h");
+
+        KmH2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        KmH2.setForeground(new java.awt.Color(0, 0, 0));
+        KmH2.setText("Km/h");
 
         javax.swing.GroupLayout Pantalla2Layout = new javax.swing.GroupLayout(Pantalla2);
         Pantalla2.setLayout(Pantalla2Layout);
@@ -283,6 +314,45 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pantalla2Layout.createSequentialGroup()
                 .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Pantalla2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(imanCarro)
+                        .addGap(18, 18, 18)
+                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Pantalla2Layout.createSequentialGroup()
+                                .addComponent(IconMotor)
+                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Pantalla2Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(TituVelocidaMaxima))
+                                    .addGroup(Pantalla2Layout.createSequentialGroup()
+                                        .addGap(41, 41, 41)
+                                        .addComponent(TituTipoMotor)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Pantalla2Layout.createSequentialGroup()
+                                        .addComponent(TxtVelocidadMaxima)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(KmH2))
+                                    .addComponent(TxtTipoMotor)))
+                            .addGroup(Pantalla2Layout.createSequentialGroup()
+                                .addComponent(IconLlantas)
+                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Pantalla2Layout.createSequentialGroup()
+                                        .addGap(56, 56, 56)
+                                        .addComponent(TituLImite))
+                                    .addGroup(Pantalla2Layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(TituNombreLLantas)))
+                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Pantalla2Layout.createSequentialGroup()
+                                        .addGap(21, 21, 21)
+                                        .addComponent(TxtLImiteVelocidad)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(KmH1))
+                                    .addGroup(Pantalla2Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(TxtNombreLlanta, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(Pantalla2Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,30 +371,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                             .addGroup(Pantalla2Layout.createSequentialGroup()
                                 .addComponent(TxtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1))
-                            .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(Pantalla2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(imanCarro)
-                        .addGap(18, 18, 18)
-                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addComponent(IconLlantas)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TituNombreLLantas)
-                                    .addComponent(TituLImite))
-                                .addGap(18, 18, 18)
-                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtLImiteVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtNombreLlanta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addComponent(IconMotor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TituVelocidaMaxima)
-                                    .addComponent(TituTipoMotor))))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                                .addComponent(KmH))
+                            .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Pantalla2Layout.setVerticalGroup(
             Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,46 +383,34 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(imanCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Pantalla2Layout.createSequentialGroup()
-                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pantalla2Layout.createSequentialGroup()
-                                .addContainerGap()
+                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(Pantalla2Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(TituNombreLLantas)
                                     .addComponent(TxtNombreLlanta))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(TituLImite)
-                                    .addComponent(TxtLImiteVelocidad))
-                                .addGap(30, 30, 30))
+                                    .addComponent(TxtLImiteVelocidad)
+                                    .addComponent(KmH1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(Pantalla2Layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
-                                .addComponent(IconLlantas)
-                                .addGap(18, 18, 18)))
+                                .addComponent(IconLlantas)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(IconMotor)
                             .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addComponent(TituTipoMotor)
-                                .addGap(18, 18, 18)
-                                .addComponent(TituVelocidaMaxima)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TxtTipoMotor)
+                                    .addComponent(TituTipoMotor))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TituVelocidaMaxima)
+                                    .addComponent(TxtVelocidadMaxima)
+                                    .addComponent(KmH2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Pantalla2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TituEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(TituVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(TxtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(Pantalla2Layout.createSequentialGroup()
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Pantalla2Layout.createSequentialGroup()
@@ -382,7 +419,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                 .addComponent(BtnApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(BtnFrenar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BtnAcerelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 2, Short.MAX_VALUE))))
+                        .addGap(0, 2, Short.MAX_VALUE))
+                    .addGroup(Pantalla2Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TituEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(KmH, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TituVelocidad))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout Pantalla1Layout = new javax.swing.GroupLayout(Pantalla1);
@@ -478,15 +526,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void BtnEncendidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEncendidoMouseClicked
         try{
         
-        //se verfica ya esta encendido
-        new YaEncedido (this.carro.isEncendido());
-        
         //se enciede el carro
-        this.carro.setEncendido(true);
+        this.carro.encender();
         JOptionPane.showMessageDialog(this, "El " + this.carro.getTipo()+" ya esta encendido");
         this.TxtEstado.setText("ENCENDIDO");
         
         }catch(YaEncedido e){
+        //se verfica ya esta encendido
         JOptionPane.showMessageDialog(this, "el automovil ya esta encendido");
         }
     }//GEN-LAST:event_BtnEncendidoMouseClicked
@@ -495,21 +541,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void BtnApagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnApagarMouseClicked
         
         try{
-        
-        //se verfica ya esta encendido
-        new EstaApagado (this.carro.isEncendido());
-        
-        //avisar al usuari que se apago el carro en velocidad mas 60 km/h
-        new Max60 (this.carro.getVelocidad());
-        
+
         //se enciede el carro
-        this.carro.setEncendido(false);
+        this.carro.apagar();
         JOptionPane.showMessageDialog(this, "El " + this.carro.getTipo()+" se va apagar");
         this.TxtEstado.setText("APAGADO");
         
         }catch(EstaApagado e){
+            
+        //se verfica ya esta encendido
         JOptionPane.showMessageDialog(this, "El automovil ya esta apagado");
         }catch(Max60 e){
+            
+            //avisar al usuari que se apago el carro en velocidad mas 60 km/h
             JOptionPane.showMessageDialog(this, "el auto movil fue apagado max 60 km/h lamntablemente se acidento");
             JOptionPane.showMessageDialog(this, "ya no se podra utilizar mas este atumovil");
             this.dispose();
@@ -524,18 +568,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         
         try{
-        
-        //se verfica si esta encendido
-        new EstaApagado (this.carro.isEncendido());
-        new Velocidad0 (this.carro.getVelocidad());
+ 
         
         //se pregunta
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres frenar")); 
         this.carro.frenar(valor);
-        
-        this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
-        new Max30 (valor);
-        
+ 
         }catch(EstaApagado e){
          //si se piensa frenar pero el carro esta apagado
         JOptionPane.showMessageDialog(this, "El automovil esta apagado nopuede hacer nada");
@@ -549,6 +587,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BtnFrenarMouseClicked
 
+    /////////////////////////////////////////////////////////////
+    /// metodo de frenar
     private void IconFrenarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconFrenarMouseClicked
         
         
@@ -580,9 +620,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         //se pregunta
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres moverte")); 
         this.carro.acelerar(valor);
-            System.out.println(this.carro.getVelocidad());
         this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
-        new Max30 (valor);
         
         }catch(EstaApagado e){
          //si se piensa frenar pero el carro esta apagado
@@ -619,6 +657,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel IconFrenar;
     private javax.swing.JLabel IconLlantas;
     private javax.swing.JLabel IconMotor;
+    private javax.swing.JLabel KmH;
+    private javax.swing.JLabel KmH1;
+    private javax.swing.JLabel KmH2;
     private javax.swing.JPanel Pantalla1;
     private javax.swing.JPanel Pantalla2;
     private javax.swing.JLabel TituEstado;
@@ -632,10 +673,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel TxtFrenar;
     private javax.swing.JLabel TxtLImiteVelocidad;
     private javax.swing.JLabel TxtNombreLlanta;
+    private javax.swing.JLabel TxtTipoMotor;
     private javax.swing.JLabel TxtVelocidad;
+    private javax.swing.JLabel TxtVelocidadMaxima;
     private javax.swing.JLabel imanCarro;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

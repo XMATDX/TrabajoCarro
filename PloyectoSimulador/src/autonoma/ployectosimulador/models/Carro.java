@@ -7,6 +7,7 @@ package autonoma.ployectosimulador.models;
 import autonoma.ployectosimulador.excepciones.EstaApagado;
 import autonoma.ployectosimulador.excepciones.Max30;
 import autonoma.ployectosimulador.excepciones.Velocidad0;
+import autonoma.ployectosimulador.excepciones.YaEncedido;
 
 /**
  *
@@ -20,7 +21,6 @@ public class Carro {
     ///
     private String tipo;
     private int velocidad = 0;
-    private boolean encendido = false;
     private Llanta llanta;
     private Motor motor;
 
@@ -56,9 +56,6 @@ public class Carro {
     //////////////////////////////////
     /// Metodos de acceso (set)
     ///
-    public boolean isEncendido() {
-        return encendido;
-    }
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
@@ -68,29 +65,33 @@ public class Carro {
         this.velocidad = velocidad;
     }
 
-    public void setEncendido(boolean encendido) {
-        this.encendido = encendido;
-    }
+
     
    //////////////////////////////////
     /// Metodos
     /// 
     
     public void encender(){
-    
-        this.encendido = true;
+        // Lanzamos si el carro  esta encendido
+        if (this.motor.isEncendido()){
+            throw new YaEncedido() ; // Lanzamos la excepción
+        }
+        this.motor.setEncendido(true);
     }
     
     public void apagar(){
-    
-        this.encendido = false;
+        // Lanzamos si el carro  esta apagado
+        if (!this.motor.isEncendido()){
+            throw new EstaApagado() ; // Lanzamos la excepción
+        }
+        this.motor.setEncendido(false);
     }
     
     public void acelerar(int cantidad ){
         //se verfica si esta encendido
         
         // Lanzamos si el carro  esta apagado
-        if (!this.encendido){
+        if (!this.motor.isEncendido()){
             throw new EstaApagado() ; // Lanzamos la excepción
         }//condicion donse avisa al usuari que se apago el carro en velocidad mas 60 km/h
         if (cantidad >= 30){
@@ -101,7 +102,7 @@ public class Carro {
     
     public void frenar(int cantidad ){
         // Lanzamos si el carro  esta apagado
-        if (!this.encendido){
+        if (!this.motor.isEncendido()){
             throw new EstaApagado() ; // Lanzamos la excepción
         }
         //se comprueba si la velocidad del carro es cero par decir que no es necesario frenar

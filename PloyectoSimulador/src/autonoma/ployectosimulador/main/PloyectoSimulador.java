@@ -20,7 +20,7 @@ public class PloyectoSimulador {
      */
     public static void main(String[] args) {
         Motor m = new Motor("nombre",100);
-        Llanta l = new Llanta("tipo",0);
+        Llanta l = new Llanta("tipo",100);
         Carro carro = new Carro("Ford mustang",m,l );
         
         //secrea la clase PantallaPrincipal para que funcione el codigo
