@@ -569,7 +569,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         try{
  
-        
+        //se comprueba si esta encendido
+        this.carro.frenar(0);
         //se pregunta
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres frenar")); 
         this.carro.frenar(valor);
@@ -594,7 +595,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         try{
  
-        
+        //se comprueba si esta encendido
+        this.carro.frenar(0);
         //se pregunta
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres frenar")); 
         this.carro.frenar(valor);
@@ -616,7 +618,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         
         try{
-        
+            
+        //se comprueba si esta encendido
+        this.carro.frenar(0);
         //se pregunta
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres moverte")); 
         this.carro.acelerar(valor);
