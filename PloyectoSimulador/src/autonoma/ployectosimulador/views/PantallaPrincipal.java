@@ -577,10 +577,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         try{
         
-        //se verfica si esta encendido
-        new EstaApagado (this.carro.isEncendido());
-        
-        
         //se pregunta
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres moverte")); 
         this.carro.acelerar(valor);

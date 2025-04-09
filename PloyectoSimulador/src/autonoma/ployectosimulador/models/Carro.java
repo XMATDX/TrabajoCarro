@@ -24,11 +24,14 @@ public class Carro {
     private Llanta llanta;
     private Motor motor;
 
-    //////////////////////////////////
+    /////////////////////////////////
     /// Constructor
-    ///
-    public Carro(String tipo) {
+    ////
+    public Carro(String tipo, Motor motor, Llanta llanta) {
         this.tipo = tipo;
+        this.motor = motor;
+        this.llanta = llanta;
+        this.motor.setEncendido(false);
     }
 
     //////////////////////////////////
@@ -49,6 +52,7 @@ public class Carro {
     public Motor getMotor() {
         return motor;
     }
+    
     //////////////////////////////////
     /// Metodos de acceso (set)
     ///
@@ -85,7 +89,13 @@ public class Carro {
     public void acelerar(int cantidad ){
         //se verfica si esta encendido
         
-        
+        // Lanzamos si el carro  esta apagado
+        if (!this.encendido){
+            throw new EstaApagado() ; // Lanzamos la excepción
+        }//condicion donse avisa al usuari que se apago el carro en velocidad mas 60 km/h
+        if (cantidad >= 30){
+           throw new Max30 (); // Lanzamos la excepción
+        }
         this.velocidad += cantidad;
     }
     
@@ -100,7 +110,7 @@ public class Carro {
         
         }
         //condicion donse avisa al usuari que se apago el carro en velocidad mas 60 km/h
-        if (this.velocidad >= 30){
+        if (cantidad >= 30){
            throw new Max30 (); // Lanzamos la excepción
         }
         

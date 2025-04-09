@@ -5,6 +5,8 @@
 package autonoma.ployectosimulador.main;
 
 import autonoma.ployectosimulador.models.Carro;
+import autonoma.ployectosimulador.models.Llanta;
+import autonoma.ployectosimulador.models.Motor;
 import autonoma.ployectosimulador.views.PantallaPrincipal;
 
 /**
@@ -17,8 +19,9 @@ public class PloyectoSimulador {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Carro carro = new Carro("Ford mustang");
+        Motor m = new Motor("nombre",100);
+        Llanta l = new Llanta("tipo",0);
+        Carro carro = new Carro("Ford mustang",m,l );
         
         //secrea la clase PantallaPrincipal para que funcione el codigo
         PantallaPrincipal pantalla =new PantallaPrincipal(carro);

@@ -8,6 +8,48 @@ package autonoma.ployectosimulador.models;
  *
  * @author mateo
  */
-class Llanta {
+public class Llanta {
+    
+    //////////////////////////////////
+    /// Atributos
+    ///
+    private String nombre;
+    private int limitePermitido;
+
+    
+    
+    /////////////////////////////////
+    /// Constructor
+    ////
+    public Llanta(String nombre, int limitePermitido) {
+        this.nombre = nombre;
+        this.limitePermitido = limitePermitido;
+    }
+
+    
+    //////////////////////////////////
+    /// Metodos de acceso (get)
+    ///
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getLimitePermitido() {
+        return limitePermitido;
+    }
+
+    
+    //////////////////////////////////
+    /// Metodos de acceso (set)
+    ///
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setLimitePermitido(int limitePermitido) {
+        this.limitePermitido = limitePermitido;
+    }
+    
+    
     
 }
