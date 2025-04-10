@@ -19,8 +19,8 @@ public class PloyectoSimulador {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Motor m = new Motor("nombre",100);
-        Llanta l = new Llanta("tipo",190);
+        Motor m = new Motor("nombre",190);
+        Llanta l = new Llanta("tipo",100);
         Carro carro = new Carro("Ford mustang",m,l );
         
         //secrea la clase PantallaPrincipal para que funcione el codigo

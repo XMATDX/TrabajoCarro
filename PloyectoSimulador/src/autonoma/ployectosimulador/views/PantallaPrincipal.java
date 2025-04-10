@@ -7,6 +7,7 @@ package autonoma.ployectosimulador.views;
 import autonoma.ployectosimulador.excepciones.FranarIntecidadMayor;
 import autonoma.ployectosimulador.excepciones.EstaApagado;
 import autonoma.ployectosimulador.excepciones.FrenarBruscamente;
+import autonoma.ployectosimulador.excepciones.LimiteCapacidad;
 import autonoma.ployectosimulador.excepciones.Max30;
 import autonoma.ployectosimulador.excepciones.Max60;
 import autonoma.ployectosimulador.excepciones.PantidandoCarro;
@@ -385,10 +386,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(KmH))
                             .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TxtAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtAviso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         Pantalla2Layout.setVerticalGroup(
             Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,17 +438,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addGap(0, 2, Short.MAX_VALUE))
                     .addGroup(Pantalla2Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TituEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(24, 24, 24)
-                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(KmH, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TituVelocidad))))
+                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TituEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(KmH, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TituVelocidad))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -620,7 +619,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void IconFrenarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconFrenarMouseClicked
         
         
-        try{
+         try{
  
         //se comprueba si esta encendido
         this.carro.frenar(0);
@@ -628,13 +627,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres frenar")); 
         this.carro.frenar(valor);
         this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
- 
+        this.carro.frenar(0);
         }catch(EstaApagado e){
          //si se piensa frenar pero el carro esta apagado
-        JOptionPane.showMessageDialog(this, "El automovil esta apagado no puede hacer nada");
+        JOptionPane.showMessageDialog(this, "El automovil esta apagado nopuede hacer nada");
         }catch(Velocidad0 e){
         //si se piensa frenar pero no hay velocidad
         JOptionPane.showMessageDialog(this, "El automovil no esta en movimiento");
+        this.TxtAviso.setText("");
         }catch(Max30 e){
         //si se piensa frenar pero no hay velocidad
         this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
@@ -642,9 +642,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }catch(FrenarBruscamente e){
         //avisar que auto esta patinando 
         JOptionPane.showMessageDialog(this, "el automovil freno mas que lo permitia las llantas, el auto esta patinando");
+      
+        this.TxtAviso.setText("!EL AUTO ESTA PANTIDANDO");
         }catch(FranarIntecidadMayor e){
         //avisar que auto freno mas de la velocida actual 
         JOptionPane.showMessageDialog(this, "el automovil freno mas que la velocidad actual, el auto esta patinando");
+        this.TxtAviso.setText("!EL AUTO ESTA PANTIDANDO");
         }
         
     }//GEN-LAST:event_IconFrenarMouseClicked
@@ -674,6 +677,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         //avisar el auto esta pantidando
         JOptionPane.showMessageDialog(this, "no se puede hacer nada el auto movil esta ");
         
+        }catch(LimiteCapacidad e){
+        //avisar el auto esta pantidando
+        JOptionPane.showMessageDialog(this, "el carro supero la velocidad maxima de motor");
+        JOptionPane.showMessageDialog(this, "lamntablemente se acidentoya no se podra utilizar mas este atumovil");
+        this.dispose();
         }
     }//GEN-LAST:event_BtnAcerelarMouseClicked
 
@@ -681,7 +689,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         
         
-          try{
+         try{
             
         //se comprueba si esta encendido
         this.carro.acelerar(0);
@@ -699,8 +707,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "esta movimiento fue muy brusco");
         }catch(PantidandoCarro e){
         //avisar el auto esta pantidando
-        JOptionPane.showMessageDialog(this, "no se puede hacer nada el auto movil esta ");
+        JOptionPane.showMessageDialog(this, "no se puede hacer nada el auto movil esta pantidando ");
         
+        }catch(LimiteCapacidad e){
+        //avisar el auto esta pantidando
+        JOptionPane.showMessageDialog(this, "el carro supero la velocidad maxima de motor");
+        JOptionPane.showMessageDialog(this, "lamntablemente se acidentoya no se podra utilizar mas este atumovil");
+        this.dispose();
         }
     }//GEN-LAST:event_IconAcerelarMouseClicked
 

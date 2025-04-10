@@ -11,6 +11,7 @@ import autonoma.ployectosimulador.excepciones.Max60;
 import autonoma.ployectosimulador.excepciones.Velocidad0;
 import autonoma.ployectosimulador.excepciones.YaEncedido;
 import autonoma.ployectosimulador.excepciones.FranarIntecidadMayor;
+import autonoma.ployectosimulador.excepciones.LimiteCapacidad;
 import autonoma.ployectosimulador.excepciones.PantidandoCarro;
 
 /**
@@ -107,6 +108,12 @@ public class Carro {
          
             throw new PantidandoCarro();
         }
+        if(cantidad > this.motor.getVelocidadMaxima()){
+            throw new LimiteCapacidad (); // Lanzamos la excepción
+        }
+        if(cantidad+this.velocidad > this.motor.getVelocidadMaxima()){
+            throw new LimiteCapacidad (); // Lanzamos la excepción
+        }
         //se verfica si esta encendido
         if (!this.motor.isEncendido()){
             throw new EstaApagado() ; // Lanzamos la excepción
@@ -115,6 +122,8 @@ public class Carro {
             this.velocidad += cantidad;
            throw new Max30 (); // Lanzamos la excepción
         }
+        
+        
         this.velocidad += cantidad;
     }
     
@@ -141,7 +150,7 @@ public class Carro {
         }
         //condicion donse avisa al usuari hizo movimiento bruco
         if (cantidad >= 30){
-            System.out.println("hello");
+           
            this.velocidad -= cantidad;
            throw new Max30 (); // Lanzamos la excepción
         }
