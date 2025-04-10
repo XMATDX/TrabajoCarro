@@ -12,6 +12,6 @@ public class Max30 extends RuntimeException {
     
     public Max30 () {
         
-        
+        super("El vehículo hizoi movimiento muy brusco");
     }
 }

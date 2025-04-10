@@ -4,9 +4,12 @@
  */
 package autonoma.ployectosimulador.views;
 
+import autonoma.ployectosimulador.excepciones.FranarIntecidadMayor;
 import autonoma.ployectosimulador.excepciones.EstaApagado;
+import autonoma.ployectosimulador.excepciones.FrenarBruscamente;
 import autonoma.ployectosimulador.excepciones.Max30;
 import autonoma.ployectosimulador.excepciones.Max60;
+import autonoma.ployectosimulador.excepciones.PantidandoCarro;
 import autonoma.ployectosimulador.excepciones.Velocidad0;
 import autonoma.ployectosimulador.excepciones.YaEncedido;
 import autonoma.ployectosimulador.models.Carro;
@@ -84,6 +87,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         TxtVelocidadMaxima = new javax.swing.JLabel();
         KmH1 = new javax.swing.JLabel();
         KmH2 = new javax.swing.JLabel();
+        TxtAviso = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -156,7 +160,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         TituVelocidad.setBackground(new java.awt.Color(0, 0, 0));
         TituVelocidad.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         TituVelocidad.setForeground(new java.awt.Color(0, 0, 0));
-        TituVelocidad.setText("Valocidad");
+        TituVelocidad.setText("Valocidad :");
 
         TituEstado.setBackground(new java.awt.Color(0, 0, 0));
         TituEstado.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
@@ -246,6 +250,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
 
         IconAcerelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/ployectosimulador/imagenes/acelerador.png"))); // NOI18N
+        IconAcerelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IconAcerelarMouseClicked(evt);
+            }
+        });
 
         TxtAcelerar.setBackground(new java.awt.Color(0, 0, 0));
         TxtAcelerar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
@@ -308,6 +317,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         KmH2.setForeground(new java.awt.Color(0, 0, 0));
         KmH2.setText("Km/h");
 
+        TxtAviso.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        TxtAviso.setForeground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout Pantalla2Layout = new javax.swing.GroupLayout(Pantalla2);
         Pantalla2.setLayout(Pantalla2Layout);
         Pantalla2Layout.setHorizontalGroup(
@@ -369,10 +381,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Pantalla2Layout.createSequentialGroup()
-                                .addComponent(TxtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TxtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(KmH))
-                            .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(Pantalla2Layout.createSequentialGroup()
+                                .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(TxtAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Pantalla2Layout.setVerticalGroup(
@@ -422,14 +437,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addGap(0, 2, Short.MAX_VALUE))
                     .addGroup(Pantalla2Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TituEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(KmH, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TituVelocidad))
+                        .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Pantalla2Layout.createSequentialGroup()
+                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(TituEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
+                                .addGroup(Pantalla2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(KmH, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TituVelocidad))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -566,7 +584,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     /// metodo de frenar
     private void BtnFrenarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFrenarMouseClicked
         
-        
         try{
  
         //se comprueba si esta encendido
@@ -574,22 +591,32 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         //se pregunta
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres frenar")); 
         this.carro.frenar(valor);
- 
+        this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
+        this.carro.frenar(0);
         }catch(EstaApagado e){
          //si se piensa frenar pero el carro esta apagado
         JOptionPane.showMessageDialog(this, "El automovil esta apagado nopuede hacer nada");
         }catch(Velocidad0 e){
         //si se piensa frenar pero no hay velocidad
         JOptionPane.showMessageDialog(this, "El automovil no esta en movimiento");
+        this.TxtAviso.setText("");
         }catch(Max30 e){
         //si se piensa frenar pero no hay velocidad
+        this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
         JOptionPane.showMessageDialog(this, "esta movimiento fue muy brusco");
+        }catch(FrenarBruscamente e){
+        //avisar que auto esta patinando 
+        JOptionPane.showMessageDialog(this, "el automovil freno mas que lo permitia las llantas, el auto esta patinando");
+      
+        this.TxtAviso.setText("!EL AUTO ESTA PANTIDANDO");
+        }catch(FranarIntecidadMayor e){
+        //avisar que auto freno mas de la velocida actual 
+        JOptionPane.showMessageDialog(this, "el automovil freno mas que la velocidad actual, el auto esta patinando");
+        this.TxtAviso.setText("!EL AUTO ESTA PANTIDANDO");
         }
         
     }//GEN-LAST:event_BtnFrenarMouseClicked
 
-    /////////////////////////////////////////////////////////////
-    /// metodo de frenar
     private void IconFrenarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconFrenarMouseClicked
         
         
@@ -600,40 +627,82 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         //se pregunta
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres frenar")); 
         this.carro.frenar(valor);
+        this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
  
         }catch(EstaApagado e){
          //si se piensa frenar pero el carro esta apagado
-        JOptionPane.showMessageDialog(this, "El automovil esta apagado nopuede hacer nada");
+        JOptionPane.showMessageDialog(this, "El automovil esta apagado no puede hacer nada");
         }catch(Velocidad0 e){
         //si se piensa frenar pero no hay velocidad
         JOptionPane.showMessageDialog(this, "El automovil no esta en movimiento");
         }catch(Max30 e){
         //si se piensa frenar pero no hay velocidad
+        this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
         JOptionPane.showMessageDialog(this, "esta movimiento fue muy brusco");
+        }catch(FrenarBruscamente e){
+        //avisar que auto esta patinando 
+        JOptionPane.showMessageDialog(this, "el automovil freno mas que lo permitia las llantas, el auto esta patinando");
+        }catch(FranarIntecidadMayor e){
+        //avisar que auto freno mas de la velocida actual 
+        JOptionPane.showMessageDialog(this, "el automovil freno mas que la velocidad actual, el auto esta patinando");
         }
         
     }//GEN-LAST:event_IconFrenarMouseClicked
 
+    /////////////////////////////////////////////////////////////
+    /// metodo de Acerelar
     private void BtnAcerelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAcerelarMouseClicked
         
         
         try{
             
         //se comprueba si esta encendido
-        this.carro.frenar(0);
+        this.carro.acelerar(0);
         //se pregunta
         int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres moverte")); 
         this.carro.acelerar(valor);
         this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
         
         }catch(EstaApagado e){
-         //si se piensa frenar pero el carro esta apagado
+         //si se piensa acelerar pero el carro esta apagado
         JOptionPane.showMessageDialog(this, "El automovil esta apagado no puede hacer nada");
         }catch(Max30 e){
-        //si se piensa frenar pero no hay velocidad
+        //si se acelero con una maginitud mas de 30
+        this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
         JOptionPane.showMessageDialog(this, "esta movimiento fue muy brusco");
+        }catch(PantidandoCarro e){
+        //avisar el auto esta pantidando
+        JOptionPane.showMessageDialog(this, "no se puede hacer nada el auto movil esta ");
+        
         }
     }//GEN-LAST:event_BtnAcerelarMouseClicked
+
+    private void IconAcerelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconAcerelarMouseClicked
+        
+        
+        
+          try{
+            
+        //se comprueba si esta encendido
+        this.carro.acelerar(0);
+        //se pregunta
+        int valor = (int) Double.parseDouble(JOptionPane.showInputDialog("cuanto quieres moverte")); 
+        this.carro.acelerar(valor);
+        this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
+        
+        }catch(EstaApagado e){
+         //si se piensa acelerar pero el carro esta apagado
+        JOptionPane.showMessageDialog(this, "El automovil esta apagado no puede hacer nada");
+        }catch(Max30 e){
+        //si se acelero con una maginitud mas de 30
+        this.TxtVelocidad.setText(Integer.toString(this.carro.getVelocidad()));
+        JOptionPane.showMessageDialog(this, "esta movimiento fue muy brusco");
+        }catch(PantidandoCarro e){
+        //avisar el auto esta pantidando
+        JOptionPane.showMessageDialog(this, "no se puede hacer nada el auto movil esta ");
+        
+        }
+    }//GEN-LAST:event_IconAcerelarMouseClicked
 
 
     private void moueseEntered(JPanel panel){
@@ -673,6 +742,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel TituVelocidaMaxima;
     private javax.swing.JLabel TituVelocidad;
     private javax.swing.JLabel TxtAcelerar;
+    private javax.swing.JLabel TxtAviso;
     private javax.swing.JLabel TxtEstado;
     private javax.swing.JLabel TxtFrenar;
     private javax.swing.JLabel TxtLImiteVelocidad;

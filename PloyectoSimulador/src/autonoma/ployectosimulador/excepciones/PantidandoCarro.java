@@ -8,13 +8,10 @@ package autonoma.ployectosimulador.excepciones;
  *
  * @author mateo
  */
-public class Max60 extends RuntimeException{
-
-    public Max60() {
+public class PantidandoCarro extends RuntimeException{
+    
+    public PantidandoCarro () {
         
-        super("El vehículo freno superando el límite permitido sus llantas el vehículo patinará.");
+        super("el carro est pantidaqndo no se puede hacer nada");
     }
-    
-    
-    
 }
