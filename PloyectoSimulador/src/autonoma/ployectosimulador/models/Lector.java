@@ -6,7 +6,7 @@ package autonoma.ployectosimulador.models;
 
 /**
  *
- * @author mateo
+ * @author maribel
  */
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * Lee el archivo
  *
- * @author Carlos Andres Rojas Parra
+ * @author Maribel Ceballos Castrillon
  * @version 1.0.0
  */
 public interface Lector {

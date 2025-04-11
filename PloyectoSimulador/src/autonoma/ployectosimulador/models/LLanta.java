@@ -21,9 +21,14 @@ public class Llanta {
     /////////////////////////////////
     /// Constructor
     ////
-    public Llanta(String nombre, int limitePermitido) {
+    public Llanta(String nombre) {
         this.nombre = nombre;
-        this.limitePermitido = limitePermitido;
+        switch (nombre.toLowerCase()) {
+            case "buenas": this.limitePermitido = 110; break;
+            case "bonitas": this.limitePermitido = 70; break;
+            case "baratas": this.limitePermitido = 50; break;
+            default: throw new IllegalArgumentException("Tipo de llanta desconocido: " + nombre);
+        }
     }
 
     

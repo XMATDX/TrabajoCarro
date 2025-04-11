@@ -22,10 +22,16 @@ public class Motor {
     /////////////////////////////////
     /// Constructor
     ////
-    public Motor(String tipo, int velocidadMaxima) {
-        this.tipo = tipo;
-        this.velocidadMaxima = velocidadMaxima;
+    public Motor(String tipo) {
+         this.tipo = tipo;
+         this.encendido =false;
+        switch (tipo) {
+            case "1000": this.velocidadMaxima = 100; break;
+            case "2000": this.velocidadMaxima = 160; break;
+            case "3000": this.velocidadMaxima = 220; break;
+            default: throw new IllegalArgumentException("Cilindraje desconocido: " + tipo);
     }
+    } 
 
     
     //////////////////////////////////

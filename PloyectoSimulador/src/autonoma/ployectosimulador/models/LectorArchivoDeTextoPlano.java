@@ -6,7 +6,7 @@ package autonoma.ployectosimulador.models;
 
 /**
  *
- * @author mateo
+ * @author maribel
  */
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,10 +19,10 @@ import java.util.ArrayList;
  *
  * Lee un archivo de texto plano
  *
- * @author Carlos Andres Rojas Parra
+ * @author Maribel Ceballos Castrillon
  * @version 1.0.0
  */
-public class LectorArchivoTextoPlano implements Lector{
+public class LectorArchivoDeTextoPlano implements Lector{
     
      /**
      * Archivo guardado por lineas
@@ -38,7 +38,7 @@ public class LectorArchivoTextoPlano implements Lector{
     /**
      * Contructor de la clase
      */
-    public LectorArchivoTextoPlano() {
+    public LectorArchivoDeTextoPlano() {
         this.archivo = new ArrayList<>();
     }
 
