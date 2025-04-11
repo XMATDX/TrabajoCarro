@@ -13,23 +13,37 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase principal del simulador de vehículos.
+ * 
+ * Esta clase se encarga de inicializar la configuración del simulador leyendo un archivo,
+ * instanciar los componentes del vehículo (llantas, motor, carro) y lanzar la interfaz gráfica.
+ * 
  * @author mateo
+ * @version 1.0
+ * @since 1.0
  */
 public class PloyectoSimulador {
 
     /**
-     * @param args the command line arguments
+     * Método principal del programa.
+     * 
+     * Lee la configuración desde un archivo, crea los objetos correspondientes y lanza
+     * la interfaz gráfica del simulador.
+     *
+     * @param args Argumentos de la línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
         
-            try {
+        try {
+            // Se crea un lector de archivos de texto plano
             LectorArchivoDeTextoPlano lector = new LectorArchivoDeTextoPlano();
+            // Se lee el archivo de configuración
             ArrayList<String> configuracion = lector.leer("src/autonoma/ployectosimulador/archivos/config.txt");
-
 
             String tipoLlantas = null;
             String cilindrajeMotor = null;
+
+            // Se procesan las líneas de configuración
             for (String linea : configuracion) {
                 String[] partes = linea.trim().split("\\s+");
                 if (partes[0].equalsIgnoreCase("llantas")) {
@@ -39,34 +53,33 @@ public class PloyectoSimulador {
                 }
             }
 
+            // Se crean los objetos Motor, Llanta y Carro
             Llanta l = new Llanta(tipoLlantas);
             Motor m = new Motor(cilindrajeMotor);
-  
-            Carro carro = new Carro("Ford mustang",m,l );
-            
-        //secrea la clase PantallaPrincipal para que funcione el codigo
-        PantallaPrincipal pantalla =new PantallaPrincipal(carro);
-        
-        //para se active el Jfrems (pantalla)
-        pantalla.setVisible(true);
+            Carro carro = new Carro("Ford mustang", m, l);
+
+            // Se lanza la interfaz gráfica
+            PantallaPrincipal pantalla = new PantallaPrincipal(carro);
+            pantalla.setVisible(true);
 
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Error en la configuración: " + e.getMessage());
         }
-        
-        
-        
-        
-        
-        
-        
-        
-    
-        
-        
-        
     }
-    
 }
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+    
+    
+

@@ -5,14 +5,21 @@
 package autonoma.ployectosimulador.excepciones;
 
 /**
- *
+ * Excepción lanzada cuando se intenta encender un vehículo que ya está encendido.
+ * 
+ * Esta excepción evita encendidos redundantes que podrían representar fallos
+ * en la lógica del sistema o acciones innecesarias del usuario.
+ * 
  * @author mateo
+ * @version 1.0
+ * @since 1.0
  */
+public class YaEncedido extends RuntimeException {
 
-public class YaEncedido extends RuntimeException{
-    
-    public YaEncedido(){
-        super("El automovil ya esta prendido");
+    /**
+     * Crea una nueva excepción {@code YaEncedido} con un mensaje por defecto.
+     */
+    public YaEncedido() {
+        super("El automóvil ya está encendido");
     }
-  
 }
