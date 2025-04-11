@@ -18,7 +18,7 @@ import autonoma.ployectosimulador.excepciones.PantidandoCarro;
  * Representa un carro con la capacidad de encender, apagar, acelerar y frenar,
  * controlando el estado del motor, la velocidad y el patinaje.
  * 
- * @author mateo
+ * @author maribel ceballos
  */
 public class Carro {
 

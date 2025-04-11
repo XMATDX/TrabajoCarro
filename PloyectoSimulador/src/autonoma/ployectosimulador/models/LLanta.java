@@ -8,7 +8,7 @@ package autonoma.ployectosimulador.models;
  * Representa una llanta de vehículo, la cual tiene un nombre y un límite permitido
  * que define cuánto puede frenar el vehículo antes de derrapar, según el tipo de llanta.
  * 
- * @author mateo
+ * @author maribel ceballos
  */
 public class Llanta {
 

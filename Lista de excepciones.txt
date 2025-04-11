@@ -1,0 +1,68 @@
+EstaApagado 
+
+ * Excepción lanzada cuando se intenta realizar una acción que requiere
+ * que el vehículo esté encendido, pero actualmente está apagado.
+ * 
+ * Por ejemplo, intentar acelerar o frenar un vehículo que no ha sido encendido.
+
+
+FranarIntecidadMayor
+
+ * Excepción lanzada cuando el vehículo intenta frenar con una intensidad
+ * mayor a la velocidad actual, lo que podría generar una pérdida de control
+ * o derrape.
+ * 
+ * Se utiliza para indicar una frenada excesiva e inadecuada según la velocidad.
+
+
+FrenarBruscamente
+
+ * Excepción lanzada cuando el vehículo frena superando el límite permitido
+ * por las llantas, lo que provoca que el vehículo patine.
+ * 
+ * Esta excepción busca alertar sobre una maniobra de frenado peligrosa
+ * que compromete la estabilidad del vehículo.
+
+
+LimiteCapacidad
+
+ * Excepción lanzada cuando el vehículo intenta superar la velocidad máxima
+ * permitida por el motor.
+ * 
+ * Esta excepción evita que el vehículo exceda sus capacidades mecánicas,
+ * protegiendo la integridad del motor.
+
+
+Max30
+
+ * Excepción lanzada cuando el vehículo realiza una aceleración o frenado
+ * mayor o igual a 30 km/h, lo cual se considera un movimiento brusco.
+ * 
+ * Esta excepción se utiliza para alertar al usuario sobre maniobras que
+ * podrían ser peligrosas o dañar componentes del vehículo.
+
+
+Max60
+
+ * Excepción lanzada cuando se intenta apagar el vehículo mientras se encuentra
+ * a una velocidad igual o superior a 60 km/h.
+ * 
+ * Esta acción se considera peligrosa y por eso se evita mediante esta excepción.
+
+
+PantidandoCarro
+
+ * Excepción lanzada cuando se intenta realizar una acción mientras el vehículo
+ * está patinando, lo cual no está permitido por razones de seguridad.
+ * 
+ * Esta excepción indica que el vehículo no puede ejecutar ciertas maniobras
+ * hasta recuperar la estabilidad.
+
+
+Velocidad0
+
+
+
+
+
+ 

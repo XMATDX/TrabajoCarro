@@ -6,7 +6,7 @@ package autonoma.ployectosimulador.models;
 
 /**
  *
- * @author mateo
+ * @author maribel ceballos
  */
 import java.io.IOException;
 import java.util.ArrayList;

@@ -8,7 +8,7 @@ package autonoma.ployectosimulador.models;
  * Representa un motor de vehículo. Cada motor tiene un tipo (cilindraje),
  * una velocidad máxima permitida según ese tipo y un estado de encendido/apagado.
  * 
- * @author mateo
+ * @author maribel ceballos
  */
 public class Motor {
 

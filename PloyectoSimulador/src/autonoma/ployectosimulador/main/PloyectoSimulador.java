@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Esta clase se encarga de inicializar la configuración del simulador leyendo un archivo,
  * instanciar los componentes del vehículo (llantas, motor, carro) y lanzar la interfaz gráfica.
  * 
- * @author mateo
+ * @author maribel ceballos 
  * @version 1.0
  * @since 1.0
  */

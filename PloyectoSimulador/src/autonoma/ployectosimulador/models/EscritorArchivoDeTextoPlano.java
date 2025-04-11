@@ -23,7 +23,7 @@ import java.util.ArrayList;
  *
  * Escribe el archivo de memoria interna
  *
- * @author Carlos Andres Rojas Parra
+ * @author maribel ceballos
  * @version 1.0.0
  */
 public class EscritorArchivoDeTextoPlano implements Escritor{
