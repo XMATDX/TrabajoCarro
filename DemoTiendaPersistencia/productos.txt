@@ -1,4 +1,0 @@
-Iphone;10000.0
-Xiaomi;2000.0
-Huawei;5000.0
-Google Pixel;7000.0
